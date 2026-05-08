@@ -1,0 +1,4 @@
+Baixar os dados do site https://datasus.saude.gov.br/transferencia-de-arquivos/
+OS dados de 2024 nao estavam carregando então eu baixei por url do github (https://github.com/rgmatias-collab/Dengue-R/blob/main/Dengue%20FTP%20-%202024%20-%20BRASIL.R)
+Transformei dbc em dbf pelo tabwin e depois usei python para converter dbf em csv 
+filtrei id agravo e sg uf not, pode-se tirar as linhas com NA, q sao bastantes na parte de agravos da doença, se necessario 
