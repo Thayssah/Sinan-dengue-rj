@@ -1,0 +1,52 @@
+Baixar os dados do site https://datasus.saude.gov.br/transferencia-de-arquivos/
+OS dados de 2024 nao estavam carregando então eu baixei por url do github (https://github.com/rgmatias-collab/Dengue-R/blob/main/Dengue%20FTP%20-%202024%20-%20BRASIL.R)
+Transformei dbc em dbf pelo tabwin e depois usei python para converter dbf em csv 
+filtrei id agravo e sg uf not.
+    pode-se tirar as linhas com NA, q sao bastantes na parte de agravos da doença, se necessario 
+Verificar se o dataset ta correto e nada foi perdido ou modificado 
+
+-----------------668172 linhas totais------------------
+22/05/2026 - 19:09
+- ultima limpeza nos dados
+    Dados agora tem apenas anos necessários "Ano de notif" (2015-2025) 
+    Coluna DT_NASC (data de nascimento) com formato YYYY-MM-DD agora é YYYY
+
+========================================================================
+OBS: > unique(dados_filtrados$DT_NOTIFIC)                                
+ [1] 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025        
+> unique(dados_filtrados$DT_INVEST)
+ [1] 2015   NA 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025 2026
+> length(dados_filtrados$DT_INVEST)
+[1] 668172
+> unique(dados_filtrados$DT_ENCERRA)
+ [1] 2015   NA 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025 2026
+ ======================================================================
+
+==========escolhendo variavel para completude==23/05=====================
+Grupo de variaveis 1 ->
+
+municipio de residencia - alocação de recursos, taxas de incidencia *
+raça/cor - vigilancia e equidade (vulneraveis?) *
+
+-a proporção de preenchimento do campo raça/cor é igual entre as microregioes 
+de saude
+-ha diferença significativa na completude de raça/cor entre as regioes 
+(poelo menos um difere das demais)
+
+Criando arquivo (dadosC1) com variaveis nessecarias e manipulando:
+    algo mudou o numero de linhas agora sao 684119
+isso foi depois de juntar dados do ibge com o arquivo dadosC1
+
+
+=============ideias=======================
+
+Grupo 2 - clinica e classificação 
+
+clasif. final (dengue classica , dengue grave..)
+
+criterio de confirmação - lab, clinico epidemiologico-descartado 
+
+data de notificação 
+
+evolução do caso (cura / obito / ignorado)
+
