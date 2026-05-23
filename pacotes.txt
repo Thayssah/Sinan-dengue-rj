@@ -1,7 +1,3 @@
-#-----------------------------------------------------------------------------------------------------------------------------------------
-#baixando os dados de 2024 por url e instalando pacotes porque eu resetei 
-#pc recentemente.
-
 #install.packages("remotes")
 #install.packages("tidyverse")
 #install.packages("dplyr")
