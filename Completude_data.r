@@ -1,6 +1,6 @@
 library(dplyr)
 #separei um arquivo pras veariaveis 
-#"CS_RACA", "ID_MUNICIP", "ID_REGIONA", "ID_UNIDADE" de interesse
+"CS_RACA", "ID_MUNICIP", "ID_REGIONA", "ID_UNIDADE" e "ID_MN_RESI" de interesse
 #dados <- readRDS("filtrados.rds")
 #variaveis_interesse <- c("CS_RACA", "ID_MUNICIP", "ID_REGIONA", "ID_UNIDADE")
 #dadosC1 <- dados_filtrados[, variaveis_interesse]
