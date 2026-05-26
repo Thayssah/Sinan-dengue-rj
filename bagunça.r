@@ -32,6 +32,10 @@ dados <- rename(dados, "NOME_MUN" = "nome")
 
 
 # Criar dicionário com nome do município e região de saúde
+#fiz e acabei nao usando pode excluir.
+#caso eu queira fazer algo com macroregioes eu posso usar o qgis 
+#ou dados do sinan/ibge pra separar por regiao
+
 regioes_saude <- data.frame(
   municipio = c("Angra dos Reis", "Mangaratiba", "Paraty",
                 "Araruama", "Armação dos Búzios", "Arraial do Cabo", "Cabo Frio", 

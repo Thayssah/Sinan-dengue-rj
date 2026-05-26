@@ -39,11 +39,11 @@ write.csv(incidencia_estado, "incidencia_ano_estado_barras.csv", row.names = FAL
 ##-------- grafico
 
 ggplot(incidencia_estado, aes(x = factor(NU_ANO), y = INCIDENCIA)) +
-  geom_bar(stat = "identity", fill = "steelblue", width = 0.7) +
+  geom_bar(stat = "identity", fill = "#556B2F", width = 0.7) +
   geom_hline(yintercept = 300, linetype = "dashed", color = "red", size = 1) +
   geom_text(aes(label = round(INCIDENCIA, 0)), vjust = -0.5, size = 3) +
   labs(
-    title = "Incidência de Dengue no Estado do Rio de Janeiro. Unidade de Atendimento (2015-2025)",
+    title = "Incidência de Dengue no Estado do Rio de Janeiro. (2015-2025)",
     x = "Ano",
     y = "Incidência por 100.000 habitantes",
     caption = "Fonte: SINAN e IBGE\nLinha vermelha = Limiar epidêmico (300 casos/100mil)"
