@@ -14,29 +14,42 @@ arquivos_filtrados <- fread(
 #---------------------------------------------------------------------------------------
 # Filtrar anos de 2015 a 2025 e editar colunas com formato YYYY-MM-DD para
 #YYYY
-
+#dados_filtrados <- readRDS("dados_dengue_rj_2014_2025.rds")
 #coluna NU_ANO
-#dados_filtrados <- arquivos2[arquivos2$NU_ANO >= 2015 & arquivos2$NU_ANO <= 2025, ]
+#dados_filtrados <- dados_filtrados[dados_filtrados$NU_ANO >= 2015 & dados_filtrados$NU_ANO <= 2025, ]
+#coluna DT_NASC
 #dados_filtrados$DT_NASC <- as.numeric(format(as.Date(dados_filtrados$DT_NASC), "%Y"))
 
-#coluna DT_SIN_PRI
-#dados_filtrados$DT_SIN_PRI <- as.numeric(format(as.Date(dados_filtrados$DT_SIN_PRI), "%Y"))
-#unique(dados_filtrados$DT_ENCERRA)
-#length(dados_filtrados$DT_INVEST)
 
-#coluna DT_NOTIFIC
-#dados_filtrados$DT_NOTIFIC <- as.numeric(format(as.Date(dados_filtrados$DT_NOTIFIC), "%Y"))
 
-#coluna DT_INVEST
-#dados_filtrados$DT_INVEST <- as.numeric(format(as.Date(dados_filtrados$DT_INVEST), "%Y"))
+#dados_filtrados <- readRDS("filtrados.rds")
+#dados_filtrados$DT_CHIK_S1 <- NULL #dados sobre chikunguya apagados
+#dados_filtrados$DT_CHIK_S2 <- NULL
+#dados_filtrados$RES_CHIKS1 <- NULL
+#dados_filtrados$RES_CHIKS2 <- NULL
+#dados_filtrados$ID_REGIONA <- NULL #apagado pois nao usam mais na ficha
 
-#DT_ENCERRA
-#dados_filtrados$DT_ENCERRA <- as.numeric(format(as.Date(dados_filtrados$DT_ENCERRA), "%Y"))
+# Raça e cor
+# Converter para fator com os labels
+  #Substituindo numeros por nomes
 
-#nrow(dados_filtrados)
+#dados_filtrados <- rename(dados_filtrados, "RACA_COR" = "RAÇA/COR")
 
-#------variaveis pra analises--------------------
+#dados_filtrados$RACA_COR <- factor(dados_filtrados$RACA_COR,
+    #levels = c(1, 2, 3, 4, 5, 9),
+    #labels = c("Branca", "Preta", "Amarela", "Parda", "Indígena", "Ignorado"))
 
-#idade x anos?
+# NA agora é "Ignorado" tambem
+#dados_filtrados$RACA_COR[is.na(dados_filtrados$RACA_COR) | dados_filtrados$RACA_COR == 9] <- "Ignorado"
 
-saveRDS(dados_filtrados, file = "filtrados.rds")
+#saveRDS(dados_filtrados, file = "filtrados.rds")
+
+table(dados_filtrados$"RACA_COR", useNA = "ifany")
+View(dados_filtrados$)
+saveRDS(dados_com_regiao, file = "dados_com_regiao.rds")
+dados_com_regiao <- readRDS("dados_com_regiao.rds")
+colnames()
+unique(dados_filtrados$"ID_MUNICIP")
+nrow()
+head()
+dados_filtrados <- readRDS("filtrados.rds")

@@ -5,29 +5,42 @@ filtrei id agravo e sg uf not.
     pode-se tirar as linhas com NA, q sao bastantes na parte de agravos da doença, se necessario 
 Verificar se o dataset ta correto e nada foi perdido ou modificado 
 
------------------684119 linhas totais------------------
+-----------------668172 linhas totais------------------
 
 22/05/2026 - 19:09
 - ultima limpeza nos dados
     Dados agora tem apenas anos necessários "Ano de notif" (2015-2025) 
     Coluna DT_NASC (data de nascimento) com formato YYYY-MM-DD agora é YYYY
 
-==========escolhendo variavel para completude==23/05=====================
+==========escolhendo variavel==23/05=====================
 Grupo de variaveis 1 ->
 
 municipio de residencia - alocação de recursos, taxas de incidencia *
 raça/cor - vigilancia e equidade (vulneraveis?) *
 
-- proporção de preecnhimento entre regioes sao diferente?quao diferente sao
-- quais regioes possuem menor/maior completude
+- desigualdades raciais na distribuição da dengue. Comparação racial
+ -Nota metodológica (como calculou incidência)
 
-Criando arquivo (dadosC1) com variaveis nessecarias e manipulando
-porque ta mt grande os dados inteiros
+
+
+Criando arquivo (dadosC1) adicionando um coluna de nomes dos municipios 
+em vez de codigos so pra melhor visualização 
     ID_MUNICIP agora tem nomes baseados no id do ibge 
     Raça/cor agora tem nomes baseados na ficha de notificação e seus respectivos n°s
-*****Preciso adicionar nova coluna macroregioes baseada na "NOME_MUN_RESIDENCIA"
-do filtrados.rds
-   fazer tabela de contingencia regioes (pela unidade de atendimento) x anos 
+    Adicionei nova coluna macroregioes baseada na "NOME_MUN_RESIDENCIA"
+do filtrados.rds (mas desisti de usar isso)
+    criado arquivo dados_rj filtrados.csv que contem colunas: 
+ano, raça/cor, municipios, casos, para manipulação no qgis (desisti disso vo fazer grafico em barras)
+
+----------------------------------------------------------------------------------------
+   !!!! OS DADOS USADOS NOS GRAFICO ABAIXO SAO OS DA COLUNA ID_MUNICIP NO DADOS ORIGINAL
+
+    Tentando fazer um Mapa Coroplético de Incidência da dengue em municipios do rj 
+levando em consideração municipio da unidade de atendimento
+
+    grafico de barras para raça/cor
+----------------------------------------------------------------------------------------
+
 
 =============ideias=======================
 
@@ -41,3 +54,62 @@ data de notificação
 
 evolução do caso (cura / obito / ignorado)
 
+fazer tabela de contingencia regioes pra completude
+
+
+
+campos_chave <- c(
+  "TP_NOT"
+  "ID_AGRAVO" 
+  "DT_NOTIFIC"
+  "ID_MUNICIP"
+)
+
+campo_obrigatório <- c(
+  "DT_INVEST" 
+  "FEBRE"
+   "CEFALEIA"
+ "EXANTEMA"
+ "VOMITO"     
+ "NAUSEA"
+ "DOR_COSTAS" 
+ "CONJUNTVIT" 
+ "ARTRITE"   
+ "ARTRALGIA"
+  "PETEQUIA_N"
+"LEUCOPENIA" 
+"LACO"       
+"DOR_RETRO"  
+"DIABETES"   
+"HEMATOLOG" 
+"HEPATOPAT"  
+"RENAL"     
+ "HIPERTENSA" 
+ "ACIDO_PEPT" 
+ "AUTO_IMUNE"
+ "SOROTIPO"
+ "CLASSI_FIN"
+ "CRITERIO"
+ "DT_OBITO"   
+ "DT_ENCERRA" 
+  "EVOLUCAO"
+ )
+
+ campo_essencial <- c(
+  "DT_SORO"  
+  "RESUL_SORO" 
+  "DT_NS1"    
+  "RESUL_NS1" 
+   "DT_VIRAL" 
+  "RESUL_VI_N" 
+  "DT_PCR"
+  "RESUL_PCR_"
+  "HOSPITALIZ"
+ "DT_INTERNA"
+ "RACA_COR"
+ "CS_ESCOL_N"
+ "COUFINF"
+
+ )
+
+ ainda falta coluna.
